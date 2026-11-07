@@ -1,0 +1,25 @@
+{
+  "name": "relay-balance-hub",
+  "version": "1.0.0",
+  "description": "Check remaining balance across multiple OpenAI-compatible LLM API relay sites (new-api/one-api based) from one command. Zero dependencies.",
+  "main": "cli.js",
+  "bin": {
+    "relay-balance-hub": "cli.js"
+  },
+  "scripts": {
+    "start": "node cli.js",
+    "init": "node cli.js --init"
+  },
+  "keywords": [
+    "llm", "api", "balance", "quota", "relay", "proxy", "new-api", "one-api",
+    "openai-compatible", "中转站", "余额查询", "billing"
+  ],
+  "engines": { "node": ">=16" },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aragorn-agent/relay-balance-hub.git"
+  },
+  "homepage": "https://github.com/aragorn-agent/relay-balance-hub#readme",
+  "bugs": "https://github.com/aragorn-agent/relay-balance-hub/issues"
+}

@@ -1,0 +1,17 @@
+# relay-balance-hub
+
+> Zero-dependency Node CLI that checks remaining balance/quota across multiple OpenAI-compatible LLM API relay sites (new-api / one-api based, including 321ai.cc) in one command. Keys stay local. MIT licensed.
+
+## What it does
+- Reads a local `balances.json` config: list of { name, baseUrl, apiKey }.
+- Calls each site's standard billing endpoints:
+  - GET {baseUrl}/v1/dashboard/billing/subscription → hard_limit_usd (total)
+  - GET {baseUrl}/v1/dashboard/billing/usage?start_date&end_date → total_usage (cents)
+- Prints a per-site table (total / used-30d / remaining) plus aggregate totals.
+- Options: --config, --init, --json, --csv, --timeout. Exit code 1 when any site fails (cron-friendly).
+
+## Key facts for agents
+- Single file (`cli.js`), Node >= 16, zero npm dependencies, no telemetry.
+- API keys support $ENV_VAR expansion; keys are never sent anywhere except their own site.
+- Repo: https://github.com/aragorn-agent/relay-balance-hub
+- Related service example: https://321ai.cc (OpenAI & Anthropic protocol compatible, per-model market pricing at /models/ and /pricing/).
